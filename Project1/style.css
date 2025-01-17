@@ -2,9 +2,38 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'General Sans';
+    background-color: black;
+    color: white;
 }
 
 html, body{
     width: 100%;
     height: 100%;
+}
+
+#main{
+    width: 100%;
+}
+
+#hero{
+    background-color: black;
+    width: 100%;
+    height: 100vh;
+}
+
+#nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 30px 35px;
+    width: 100%;
+    color: #fff;
+}
+
+#nav a{
+    font-weight: 600;
+    font-size: 18px;
+    color: white;
+    text-decoration: none;
 }
