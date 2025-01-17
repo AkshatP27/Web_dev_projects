@@ -26,14 +26,43 @@ html, body{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 30px 35px;
+    padding: 30px 40px;
     width: 100%;
     color: #fff;
 }
 
 #nav a{
     font-weight: 600;
-    font-size: 18px;
+    font-size: 17px;
     color: white;
     text-decoration: none;
+    letter-spacing: 1px;
+}
+
+#heading{
+    margin-top: 40px;
+}
+
+#heading h1{
+    font-size: 10vw;
+    text-transform: uppercase;
+    opacity: .6;
+    line-height: .9;
+    margin-left: 50px;
+}
+
+#heading #secondH1{
+    margin-left: 15vw;
+}
+
+.blockText{
+    width: fit-content;
+    /* background-color: red; */
+}
+
+.blockText h5{
+    line-height: 3;
+    text-align: right;
+    text-transform: uppercase;
+    font-size: 16px;
 }
