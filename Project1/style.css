@@ -125,19 +125,17 @@ html, body{
     width: 100%;
     height: 100vh;
     background-color: #000;
-    padding-left: 3vw;
-    padding-right: 9vw;
+    /* padding-right: 9vw; */
 }
 
 .elem{
+    margin-left: 3vw;
     position: relative;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 100%;
+    width: 90%;
     border-top: 1px solid #777;
-    /* padding-top: 2vw; */
-    
 }
 
 .elem h1{
@@ -165,6 +163,7 @@ html, body{
 }
 
 #btn1{
+    padding-left: 3vw;
     padding-top: 4vw;
 }
 
@@ -178,4 +177,42 @@ html, body{
 
 #btn1 button sup{
     opacity: .6;
+}
+
+#second #scroller{
+    margin-top: 15vw;
+    border-top: 1px solid #777;
+    border-bottom: 1px solid #777;
+    white-space: nowrap;
+    /* box-sizing: border-box; */
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    z-index: 10;
+}
+
+#scroller #marquee{
+    padding-top: 3vw;
+    padding-bottom: 3vw;
+    display: inline-block;
+    white-space: nowrap;
+    animation: scroll 36s linear infinite;
+}
+
+#scroller #marquee img{
+    display: inline-block;
+    margin-right: 15vw;
+}
+
+#scroller::-webkit-scrollbar{
+    display: none;
+}
+
+@keyframes scroll {
+    0%{
+        transform: translateX(0);
+    }
+    100%{
+        transform: translateX(-100%);
+    }
 }
