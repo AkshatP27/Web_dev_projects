@@ -13,6 +13,17 @@ html, body {
     overflow: hidden; /* Required for Locomotive Scroll */
 }
 
+#miniCircle {
+    width: 12px;
+    height: 12px;
+    background-color: #fff;
+    border-radius: 50%;
+    z-index: 99999;
+    position: fixed; /* Change this from relative to fixed */
+    pointer-events: none; /* Ensures it doesn't block clicks */
+    transition: transform cubic-bezier(0.19, 1, 0.22, 1) 1s;
+}
+
 #main{
     overflow: hidden;
     width: 100%;
@@ -222,7 +233,7 @@ html, body {
 }
 
 #about{
-    margin-top: 63vw;
+    margin-top: 54vw;
     /* padding-top: 10vw; */
     color: #fff;
     width: 100%;
