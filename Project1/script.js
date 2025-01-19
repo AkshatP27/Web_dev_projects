@@ -30,4 +30,31 @@ function circleMouseFollower() {
     updateCirclePosition();
 }
 
-circleMouseFollower()
+function firstPageAnimation(){
+    var tl = gsap.timeline()
+    
+    tl.from('#nav', {
+        y: 10,
+        opacity: 0,
+        ease: Expo.easeInOut,
+        duration: 1,
+    })
+    .to('.boundingelem', {
+        y: 0,
+        // opacity: 0,
+        ease: Expo.easeInOut,
+        duration: 1.2,
+        delay : -.7,
+        stagger: .2     //for delay in animation after first animation
+    })
+    .from('#heroFooter', {
+        z: -10,
+        opacity: 0,
+        ease: Expo.easeInOut,
+        duration: .9,
+        delay: -.7
+    })
+}
+
+circleMouseFollower();
+firstPageAnimation()
