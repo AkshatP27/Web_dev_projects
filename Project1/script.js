@@ -94,17 +94,55 @@ circleDraggingEffect();
 firstPageAnimation()
 
 
-// document.querySelectorAll('.elem').forEach(function(elem){
-//     elem.addEventListener('mousemove', function(dets){
-//         // console.log(dets.clientX, dets.clientY)
-//         // console.log(dets.clientY - elem.getBoundingClientRect().top);
-//         var diff = dets.clientY - elem.getBoundingClientRect().top;
+document.querySelectorAll('.elem').forEach(function(elem) {
+    var rotate = 0;
+    var diffrot = 0;
 
-//         gsap.to(elem.querySelector('img'), {
-//             opacity: 1,
-//             ease: Power1,
-//             top: diff,
-//             left: dets.clientX,
-//         });
-//     });
-// });
+    elem.addEventListener('mouseleave', function() {
+        const img = elem.querySelector("img");
+        gsap.to(img, {
+            opacity: 0,
+            ease: Power3,
+            onComplete: function() {
+                img.style.top = '';
+                img.style.left = '';
+                img.style.transform = '';
+            }
+        });
+    });
+
+    elem.addEventListener('mousemove', function(dets) {
+        // Hide images of all other elements
+        document.querySelectorAll('.elem img').forEach(function(otherImg) {
+            if (otherImg !== elem.querySelector('img')) {
+                gsap.to(otherImg, {
+                    opacity: 0,
+                    ease: Power3,
+                    onComplete: function() {
+                        otherImg.style.top = '';
+                        otherImg.style.left = '';
+                        otherImg.style.transform = '';
+                    }
+                });
+            }
+        });
+
+        var diff = dets.clientY - elem.getBoundingClientRect().top;
+
+        diffrot = dets.clientX - rotate;
+        rotate = dets.clientX;
+
+        const img = elem.querySelector('img');
+        const imgWidth = img.offsetWidth / 2;
+        const imgHeight = img.offsetHeight / 2;
+        img.style.borderRadius = '27px';
+
+        gsap.to(img, {
+            opacity: 1,
+            ease: Power1,
+            top: diff - imgHeight,
+            left: dets.clientX - imgWidth,
+            rotate: gsap.utils.clamp(-20, 20, diffrot)
+        });
+    });
+});
