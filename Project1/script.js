@@ -146,3 +146,19 @@ document.querySelectorAll('.elem').forEach(function(elem) {
         });
     });
 });
+
+function updateTime() {
+    const timeElement = document.getElementById('time');
+    const now = new Date();
+    let hours = now.getHours();
+    const minutes = String(now.getMinutes()).padStart(2, '0');
+    const ampm = hours >= 12 ? 'PM' : 'AM';
+    hours = hours % 12;
+    hours = hours ? hours : 12; // the hour '0' should be '12'
+    const timezoneAbbreviation = 'IST'; // Replace with your desired timezone abbreviation
+    timeElement.textContent = `${hours}:${minutes} ${ampm} (${timezoneAbbreviation})`;
+}
+
+setInterval(updateTime, 1000);
+
+updateTime();
